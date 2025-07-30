@@ -1,0 +1,62 @@
+{
+  "name": "Automation",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome da automação"
+    },
+    "description": {
+      "type": "string",
+      "description": "O que esta automação faz"
+    },
+    "trigger_type": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "on_page_load",
+        "on_element_click"
+      ],
+      "description": "Tipo de gatilho que inicia a automação"
+    },
+    "trigger_value": {
+      "type": "string",
+      "description": "Valor associado ao gatilho (ex: URL, seletor CSS)"
+    },
+    "steps": {
+      "type": "array",
+      "description": "Sequência de passos da automação",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "click",
+              "type",
+              "wait",
+              "extract_data"
+            ]
+          },
+          "selector": {
+            "type": "string",
+            "description": "Seletor CSS do elemento alvo"
+          },
+          "value": {
+            "type": "string",
+            "description": "Texto para digitar ou valor para usar"
+          }
+        }
+      }
+    },
+    "team_id": {
+      "type": "string",
+      "description": "ID da equipe associada"
+    }
+  },
+  "required": [
+    "name",
+    "trigger_type",
+    "steps"
+  ]
+}

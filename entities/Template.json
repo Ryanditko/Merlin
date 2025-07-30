@@ -1,0 +1,68 @@
+{
+  "name": "Template",
+  "type": "object",
+  "properties": {
+    "trigger": {
+      "type": "string",
+      "description": "Comando para ativar (ex: /hello)"
+    },
+    "title": {
+      "type": "string",
+      "description": "Nome do template"
+    },
+    "content": {
+      "type": "string",
+      "description": "Conteúdo do template"
+    },
+    "variables": {
+      "type": "array",
+      "description": "Variáveis do template",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "text",
+              "date",
+              "select"
+            ]
+          },
+          "required": {
+            "type": "boolean",
+            "default": false
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "team_id": {
+      "type": "string",
+      "description": "ID da equipe"
+    },
+    "usage_count": {
+      "type": "number",
+      "default": 0
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "trigger",
+    "title",
+    "content"
+  ]
+}

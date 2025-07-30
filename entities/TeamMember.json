@@ -1,0 +1,27 @@
+{
+  "name": "TeamMember",
+  "type": "object",
+  "properties": {
+    "team_id": {
+      "type": "string",
+      "description": "ID da equipe"
+    },
+    "user_email": {
+      "type": "string",
+      "description": "Email do usuário"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "member"
+      ],
+      "default": "member",
+      "description": "Papel do usuário na equipe. Admins podem adicionar/remover membros."
+    }
+  },
+  "required": [
+    "team_id",
+    "user_email"
+  ]
+}

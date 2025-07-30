@@ -1,0 +1,100 @@
+{
+  "name": "Workflow",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome do fluxo de automação"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descrição do que o fluxo faz"
+    },
+    "trigger": {
+      "type": "object",
+      "description": "Evento que dispara o fluxo",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "keyboard_shortcut",
+            "url_match",
+            "manual",
+            "form_detection"
+          ]
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "description": "Passos do fluxo de automação",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "type_text",
+              "click_element",
+              "wait",
+              "fill_form",
+              "press_key",
+              "navigate"
+            ]
+          },
+          "target": {
+            "type": "string",
+            "description": "Seletor CSS ou elemento alvo"
+          },
+          "value": {
+            "type": "string",
+            "description": "Valor a ser inserido ou ação"
+          },
+          "delay": {
+            "type": "number",
+            "default": 500,
+            "description": "Delay em ms antes da ação"
+          }
+        }
+      }
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Se o workflow está ativo"
+    },
+    "usage_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Número de execuções"
+    },
+    "success_rate": {
+      "type": "number",
+      "default": 100,
+      "description": "Taxa de sucesso em porcentagem"
+    },
+    "last_executed": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Última execução"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags para organização"
+    }
+  },
+  "required": [
+    "name",
+    "trigger",
+    "steps"
+  ]
+}

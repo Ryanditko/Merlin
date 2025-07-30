@@ -1,0 +1,66 @@
+{
+  "name": "Workspace",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome do workspace"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descrição do workspace"
+    },
+    "owner_id": {
+      "type": "string",
+      "description": "ID do proprietário do workspace"
+    },
+    "settings": {
+      "type": "object",
+      "description": "Configurações do workspace",
+      "properties": {
+        "automation_enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "ai_assistance": {
+          "type": "boolean",
+          "default": true
+        },
+        "code_editing": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "description": "Limites de uso do workspace",
+      "properties": {
+        "max_automations": {
+          "type": "number",
+          "default": 100
+        },
+        "max_members": {
+          "type": "number",
+          "default": 10
+        },
+        "expansions_used": {
+          "type": "number",
+          "default": 0
+        },
+        "monthly_limit": {
+          "type": "number",
+          "default": 1000
+        }
+      }
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "name",
+    "owner_id"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "name": "CodeEditor",
+  "type": "object",
+  "properties": {
+    "workspace_id": {
+      "type": "string",
+      "description": "ID do workspace"
+    },
+    "authorized_emails": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Emails autorizados a editar código"
+    },
+    "code_files": {
+      "type": "array",
+      "description": "Arquivos de código customizado",
+      "items": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "javascript",
+              "css",
+              "html"
+            ]
+          },
+          "last_modified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "custom_functions": {
+      "type": "array",
+      "description": "Funções customizadas disponíveis",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "required": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "workspace_id"
+  ]
+}

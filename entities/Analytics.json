@@ -1,0 +1,43 @@
+{
+  "name": "Analytics",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data do registro"
+    },
+    "snippets_used": {
+      "type": "number",
+      "default": 0,
+      "description": "Snippets usados no dia"
+    },
+    "workflows_executed": {
+      "type": "number",
+      "default": 0,
+      "description": "Workflows executados no dia"
+    },
+    "time_saved_minutes": {
+      "type": "number",
+      "default": 0,
+      "description": "Tempo economizado em minutos"
+    },
+    "keystrokes_saved": {
+      "type": "number",
+      "default": 0,
+      "description": "Teclas economizadas"
+    },
+    "most_used_category": {
+      "type": "string",
+      "description": "Categoria mais usada do dia"
+    },
+    "productivity_score": {
+      "type": "number",
+      "default": 0,
+      "description": "Score de produtividade (0-100)"
+    }
+  },
+  "required": [
+    "date"
+  ]
+}

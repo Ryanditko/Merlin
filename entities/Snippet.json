@@ -1,0 +1,77 @@
+{
+  "name": "Snippet",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Nome do snippet"
+    },
+    "shortcut": {
+      "type": "string",
+      "description": "Atalho para expansão (ex: @@email)"
+    },
+    "content": {
+      "type": "string",
+      "description": "Conteúdo do snippet com variáveis"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "email",
+        "forms",
+        "social",
+        "support",
+        "sales",
+        "personal",
+        "other"
+      ],
+      "default": "other",
+      "description": "Categoria do snippet"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Se o snippet está ativo"
+    },
+    "usage_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Número de vezes usado"
+    },
+    "variables": {
+      "type": "array",
+      "description": "Lista de variáveis dinâmicas",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "default_value": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "text",
+              "email",
+              "phone",
+              "date",
+              "url"
+            ]
+          }
+        }
+      }
+    },
+    "last_used": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Última vez que foi usado"
+    }
+  },
+  "required": [
+    "title",
+    "shortcut",
+    "content"
+  ]
+}
